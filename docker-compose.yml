@@ -37,20 +37,6 @@ services:
     command:
     - "--config.file=/etc/prometheus/blackbox-exporter.yml"
 
-  grafana:
-    image: "grafana/grafana:7.2.0"
-    hostname: "grafana"
-    restart: always
-    networks:
-    - website_monitoring
-    ports:
-    - "127.0.0.1:3000:3000"
-    environment:
-    - "GF_SECURITY_ADMIN_PASSWORD=CHANGEME"
-    - "GF_AUTH_ANONYMOUS_ENABLED=true"
-    volumes:
-    - "./config/grafana/provisioning:/etc/grafana/provisioning"
-
 volumes:
   prometheus_data:
 
